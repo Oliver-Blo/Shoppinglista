@@ -1,0 +1,25 @@
+body {
+    background-color: #000033;
+    text-align:center;
+  }
+
+h1 {
+    color: white;
+}
+
+table {
+    color: white;
+    margin:auto;
+}
+
+th {
+    font-size: 24px;
+}
+
+#raderaalla {
+    color:red;
+}
+
+#raderavalda {
+    color:red;
+}

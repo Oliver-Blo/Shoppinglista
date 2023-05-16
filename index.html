@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="index.css">
+    <script src="Shoppinglista.js"></script>
+
+    <title>Shoppinglista</title>
+</head>
+<body>
+    <header>
+        <h1>Shoppinglista</h1>
+    </header>
+    <main>
+        <form>
+            <input type="text" id="varainput">
+            <button type="button" id="varabutton">Lägg till</button>
+        </form>
+        <table>
+            <tr>
+                <th></th>
+                <th>Vara</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>Mjölk</td>
+                <td><i class="material-icons">edit</i></td>
+                <td><i class="material-icons">delete</i></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>Smör</td>
+                <td><i class="material-icons">edit</i></td>
+                <td><i class="material-icons">delete</i></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>Bröd</td>
+                <td><i class="material-icons">edit</i></td>
+                <td><i class="material-icons">delete</i></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>Korv</td>
+                <td><i class="material-icons">edit</i></td>
+                <td><i class="material-icons">delete</i></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td><td>Frukt</td>
+                <td><i class="material-icons">edit</i></td>
+                <td><i class="material-icons">delete</i></td>
+            </tr>
+        </table>
+        <div id="deletebuttons">
+            <button id="raderaalla">Radera alla</button>
+            <button id="raderavalda">Radera valda</button>
+        </div>
+    </main>
+</body>
+</html>
