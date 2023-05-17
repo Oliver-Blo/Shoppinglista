@@ -1,25 +1,53 @@
 body {
-    background-color: #000033;
-    text-align:center;
-  }
+    background-color: #F5F5F5;
+    text-align: center;
+    font-size: 18px;
+}
 
 h1 {
-    color: white;
+    color: #333333;
 }
 
 table {
-    color: white;
-    margin:auto;
+    color: #333333;
+    margin: auto;
+}
+
+#varatable {
+    color: #333333;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    text-align: center;
 }
 
 th {
     font-size: 24px;
 }
 
-#raderaalla {
-    color:red;
+#raderaalla,
+#raderavalda {
+    color: #FF0000; /* Red text color */
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background-color: #AEC6CF;
 }
 
-#raderavalda {
-    color:red;
+#deletebuttons {
+    padding-top:15px;
+}
+
+#varabutton{
+    cursor:pointer;
+    padding: 8px 14px;
+    border-radius:10px;
+    background-color:#AEC6CF;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
 }
