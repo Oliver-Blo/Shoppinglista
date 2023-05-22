@@ -43,6 +43,7 @@ function appendProducts(data){
         checkboxtd.appendChild(checkbox);
 
         let texttd=document.createElement("td");
+        texttd.id="vara"+data[i].id;
         texttd.innerHTML=data[i].namn;
 
         let redigeratd=document.createElement("td");
