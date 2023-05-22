@@ -1,5 +1,5 @@
 <?php
-declare(strict_type=1);
+declare(strict_types=1);
 
 try {
 
@@ -11,4 +11,3 @@ try {
 }
 
 
-exit;
