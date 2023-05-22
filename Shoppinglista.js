@@ -1,12 +1,14 @@
 serverurl='php/'
-produkter=[{"id":1, "namn":"Smör","checked":0},
-            {"id":2,"namn":"Korv","checked":0},
-            {"id":3,"namn":"Bröd","checked":0}];
+produkter=[];
 
 window.onload = function() {
     getProducts();
+    document.getElementById("varabutton").onclick=function() {
+        saveProduct();
+    }
 
 }
+
 
 function getProducts() {
     //radera vid fungerande php
@@ -69,6 +71,10 @@ function appendProducts(data){
     }
 
 }
+
+
+
+
 
 
 /*
