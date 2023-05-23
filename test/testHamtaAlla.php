@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 try {
     //Skapa ett "handle" till curl för att läsa svaret från angiven sida
-    $ch=curl_init('http://localhost/Shoppinglist/php/hamtaAlla.php');
+    $ch = curl_init('http://localhost/Shoppinglista/php/hamtaAlla.php');
+
     //return the transfer as a string
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 

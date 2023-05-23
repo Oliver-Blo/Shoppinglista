@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+//Inkludera gemensamma funktioner
 require_once "funktioner.php";
 
 //Koppla mot databasen

@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+
+//Inkludera gemensamma funktioner
 require_once "funktioner.php";
 
 //Kontrollera anropsmetod
@@ -21,7 +23,7 @@ if(!isset($id) || $id===false || $id<1) {
     $error->meddelande[]="'id' saknas eller är felaktigt";
 }
 
-if(isset($vara) || mb_strlen($vara)>50) {
+if(!isset($vara) || mb_strlen($vara)>50) {
     //Felaktig vara, lägg till meddelande till felobjekt
     $error->meddelande[]="'vara' saknas eller är för långt";
 }
@@ -40,7 +42,7 @@ $db=connectDB();
 $sql="UPDATE varor SET namn=:vara WHERE id=:id";
 $stmt=$db->prepare($sql);
 
-$stmt->execute(['id' => $id, 'vara' => $vara]);
+$stmt->execute([':id' => $id, ':vara' => $vara]);
 
 //Returnera svar
 if($stmt->rowCount()>0) {

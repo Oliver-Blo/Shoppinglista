@@ -46,14 +46,15 @@ function appendProducts(data){
         texttd.id="vara"+data[i].id;
         texttd.innerHTML=data[i].namn;
 
-        let redigeratd=document.createElement("td");
-        let redigeraicon=document.createElement("i");
-        redigeraicon.classList.add("material-icons");
-        redigeraicon.innerHTML="edit";
-        redigeraicon.onclick=function(){
-            editProduct(data[i].id)
-        }
-        redigeratd.appendChild(redigeraicon);
+        let redigeratd = document.createElement("td");
+let redigeraicon = document.createElement("i");
+redigeraicon.classList.add("material-icons");
+redigeraicon.innerHTML = "edit";
+redigeraicon.addEventListener("click", function() {
+    editVaraForm(data[i].id);
+});
+redigeratd.appendChild(redigeraicon);
+
         
         let raderatd=document.createElement("td");
         let raderaicon=document.createElement("i");
