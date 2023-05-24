@@ -24,8 +24,10 @@ if(!isset($id) || !$id || $id<1) {
 $db=connectDB();
 
 //Toggla checkad-värdet
-$sql="UPDATE varor SET checked=NOT(checked) WHERE id=:id";
+$sql = "UPDATE varor SET checked=NOT(checked) WHERE id=:id";
 $stmt=$db->prepare($sql);
+$stmt->execute(['id'=>$id]);
+
 
 if($stmt->rowCount()===0) {
     $error=new stdClass();

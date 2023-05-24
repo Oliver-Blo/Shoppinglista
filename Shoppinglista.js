@@ -6,7 +6,12 @@ window.onload = function() {
     document.getElementById("varabutton").onclick=function() {
         saveProduct();
     }
-
+    document.getElementById("raderaalla").onclick=function(){
+        deleteAllProducts();
+}
+document.getElementById("raderavalda").onclick=function(){
+    deleteCheckedProducts();
+}
 }
 
 
@@ -37,8 +42,11 @@ function appendProducts(data){
         let checkboxtd=document.createElement("td");
         let checkbox=document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
+        if(data[i].checked){
+            checkbox.checked=1;
+        }
         checkbox.onclick=function(){
-            checkProduct(data.id);
+            checkProduct(data[i].id);
         }
         checkboxtd.appendChild(checkbox);
 
@@ -61,7 +69,7 @@ redigeratd.appendChild(redigeraicon);
         raderaicon.classList.add("material-icons");
         raderaicon.innerHTML="delete";
         raderaicon.onclick=function(){
-            deleteProduct(data[i].id)
+            deleteProduct(data[i].id,data[i])
         }
         raderatd.appendChild(raderaicon);
 
