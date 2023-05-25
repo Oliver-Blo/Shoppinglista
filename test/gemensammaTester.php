@@ -57,9 +57,15 @@ function aterstallDB($varor):void {
     }
 }
 
-function idSaknas($curlHandle) {
+function idSaknas($curlHandle, string $vara=null) {
     //Sätt anropsmetod till POST
     curl_setopt($curlHandle, CURLOPT_POST, true);
+
+    //Sätt optional data...
+    if($vara) {
+        $data=['vara'=>$vara];
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
+    }
 
     //Anropa och ta hand om svaret
     $jsonSvar=curl_exec($curlHandle);
@@ -74,10 +80,9 @@ function idSaknas($curlHandle) {
 
 }
 
-function idFinnsInte($curlHandle) {
+function idFinnsInte($curlHandle, string $vara=null) {
     //Koppla mot databas och starta transaktion
     $db=connectDB();
-
 
     //Skapa en ny post
     $id=skapaVara("test");
@@ -90,6 +95,11 @@ function idFinnsInte($curlHandle) {
 
     //Lägg data till anropet
     $data=['id' => $id];
+
+    //Lägg till optional data
+    if($vara) {
+        $data['vara']=$vara;
+    }
     curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
 
     //Skicka anrop
@@ -104,13 +114,19 @@ function idFinnsInte($curlHandle) {
     }
 }
 
-function idNegativt($curlHandle) {
+function idNegativt($curlHandle, string $vara=null) {
     //Sätt anropsmetod till POST
     curl_setopt($curlHandle, CURLOPT_POST, true);
 
     //Lägg till data till anropet
     $data=['id' => -1];
-    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
+
+    //Sätt optional data...
+    if($vara) {
+        $data=['vara'=>$vara];
+    }
+
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
 
     //Skicka anrop
     $jsonSvar=curl_exec($curlHandle);
@@ -124,13 +140,19 @@ function idNegativt($curlHandle) {
     }
 }
 
-function idBokstav($curlHandle) {
+function idBokstav($curlHandle, string $vara=null) {
     //Sätt anropsmetod till POST
     curl_setopt($curlHandle, CURLOPT_POST, true);
 
     //Lägg till data till anropet
     $data=['id' => "id"];
-    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
+
+    //Sätt optional data...
+    if($vara) {
+        $data['vara']=$vara;
+    }
+
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
 
     //Skicka anrop
     $jsonSvar=curl_exec($curlHandle);
