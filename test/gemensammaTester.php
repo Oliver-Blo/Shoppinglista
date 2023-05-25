@@ -29,3 +29,14 @@ function raderaVara(int $id):void {
     $db=connectDB();
     $db->exec("DELETE FROM varor WHERE id=$id");
 }
+
+function lasVara(int $id):stdClass {
+    $db=connectDB();
+    $row=$db->query("SELECT * FROM varor WHERE id=$id");
+    return $row->fetchObject();
+}
+
+function kryssaVara(int $id):void {
+    $db=connectDB();
+    $db->query("UPDATE varor SET checked=1 WHERE id=$id");
+}
