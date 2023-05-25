@@ -56,3 +56,91 @@ function aterstallDB($varor):void {
         $stmt->execute($value);
     }
 }
+
+function idSaknas($curlHandle) {
+    //Sätt anropsmetod till POST
+    curl_setopt($curlHandle, CURLOPT_POST, true);
+
+    //Anropa och ta hand om svaret
+    $jsonSvar=curl_exec($curlHandle);
+    $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
+
+    //Kontrollera svar och skriv ut text
+    if($status===400) {
+        echo "<p class='ok'>Förväntat svar 400</p>";
+    } else {
+        echo "<p class='error'>Svar med status=$status istället för förväntat 400</p>";
+    }
+
+}
+
+function idFinnsInte($curlHandle) {
+    //Koppla mot databas och starta transaktion
+    $db=connectDB();
+
+
+    //Skapa en ny post
+    $id=skapaVara("test");
+
+    //Radera den nya posten
+    raderaVara($id);
+
+    //Sätt anropsmetod till POST
+    curl_setopt($curlHandle, CURLOPT_POST, true);
+
+    //Lägg data till anropet
+    $data=['id' => $id];
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $data);
+
+    //Skicka anrop
+    $jsonSvar=curl_exec($curlHandle);
+    $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
+
+    //Kontrollera svar och skiv ut resultat
+    if($status===400) {
+        echo "<p class='ok'>Förväntat svar 400</p>";
+    } else {
+        echo "<p class='error'>Fick status=status istället för förväntat 400</p>";
+    }
+}
+
+function idNegativt($curlHandle) {
+    //Sätt anropsmetod till POST
+    curl_setopt($curlHandle, CURLOPT_POST, true);
+
+    //Lägg till data till anropet
+    $data=['id' => -1];
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
+
+    //Skicka anrop
+    $jsonSvar=curl_exec($curlHandle);
+    $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
+
+    //Kontrollera svar och skriv ut resultat
+    if($status===400) {
+        echo "<p class='ok'>Fick förväntat svar 400</p>";
+    }else {
+        echo "<p class='error'>Fick status=$status istället för förväntat 400</p>";
+    }
+}
+
+function idBokstav($curlHandle) {
+    //Sätt anropsmetod till POST
+    curl_setopt($curlHandle, CURLOPT_POST, true);
+
+    //Lägg till data till anropet
+    $data=['id' => "id"];
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, true);
+
+    //Skicka anrop
+    $jsonSvar=curl_exec($curlHandle);
+    $status=curl_getinfo($curlHandle, CURLINFO_RESPONSE_CODE);
+
+    //Kontrollera svar och skriv ut resultat
+    if($status===400) {
+        echo "<p class='ok'>Fick förväntat svar 400</p>";
+    }else {
+        echo "<p class='error'>Fick status=$status istället för förväntat 400</p>";
+    }
+
+}
